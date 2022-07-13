@@ -10,12 +10,8 @@
                         </a>
                     </li>
                     <li>
-                        <a href="basico/" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Básico</span> </a>
-                    </li>
-                    <li>
-                        <a href="eventos/" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Eventos</span></a>
+                        <a href="carteira" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Carteira</span> </a>
                     </li>
                 </ul>
             </div>
