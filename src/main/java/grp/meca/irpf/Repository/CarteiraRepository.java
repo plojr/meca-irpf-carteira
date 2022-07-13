@@ -9,5 +9,5 @@ import grp.meca.irpf.Models.Carteira;
 
 @Repository
 public interface CarteiraRepository extends JpaRepository<Carteira, Integer> {
-	public List<Carteira> findAllByOrderByData();
+	public List<Carteira> findAllByOrderByDataAsc();
 }

@@ -22,6 +22,15 @@ import lombok.Data;
 @Entity(name = "item_carteira")
 public class ItemCarteira {
 	
+	public ItemCarteira() {}
+	
+	public ItemCarteira(int quantidade, Ticker ticker, double custoTotal, Carteira carteira) {
+		this.quantidade = quantidade;
+		this.ticker = ticker;
+		this.custoTotal = custoTotal;
+		this.carteira = carteira;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;

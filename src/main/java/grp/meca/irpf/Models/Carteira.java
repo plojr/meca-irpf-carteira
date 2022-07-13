@@ -16,6 +16,12 @@ import lombok.Data;
 @Entity(name = "carteira")
 public class Carteira {
 
+	public Carteira() {}
+	
+	public Carteira(LocalDate data) {
+		this.data = data;
+	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
