@@ -24,6 +24,10 @@ public class ItemCarteira {
 	
 	public ItemCarteira() {}
 	
+	public ItemCarteira(ItemCarteira item, Carteira carteira) {
+		this(item.getQuantidade(), item.getTicker(), item.getCustoTotal(), carteira);
+	}
+	
 	public ItemCarteira(int quantidade, Ticker ticker, double custoTotal, Carteira carteira) {
 		this.quantidade = quantidade;
 		this.ticker = ticker;

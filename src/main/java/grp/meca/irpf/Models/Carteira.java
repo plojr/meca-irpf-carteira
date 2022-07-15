@@ -14,7 +14,7 @@ import lombok.Data;
 
 @Data
 @Entity(name = "carteira")
-public class Carteira {
+public class Carteira implements Comparable<Carteira> {
 
 	public Carteira() {}
 	
@@ -30,5 +30,17 @@ public class Carteira {
 	private LocalDate data;
 	
 	@Transient
+	private double custoTotal;
+	
+	@Transient
 	private List<ItemCarteira> itens;
+
+	public String toString() {
+		return data + " " + (itens == null ? "null" : itens.size());
+	}
+	
+	@Override
+	public int compareTo(Carteira c) {
+		return this.data.compareTo(c.getData());
+	}
 }

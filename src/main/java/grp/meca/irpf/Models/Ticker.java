@@ -16,7 +16,7 @@ import lombok.Data;
 @Data
 @Entity
 (name = "tickers")
-public class Ticker {
+public class Ticker implements Comparable<Ticker> {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -61,6 +61,11 @@ public class Ticker {
 	
 	public Ticker(String codigo) {
 		this(codigo, "00000000000000", false);
+	}
+
+	@Override
+	public int compareTo(Ticker outro) {
+		return this.getCodigo().compareTo(outro.getCodigo());
 	}
 	
 }

@@ -40,4 +40,18 @@ public class MapUtil {
 		else
 			map.put(key, value);
 	}
+	
+	public static void add(Map<String, Double> map, String key, double value) {
+		if(map.containsKey(key))
+			map.put(key, value + map.get(key));
+		else
+			map.put(key, value);
+	}
+	
+	public static void add(Map<String, Integer> map, String key, int value) {
+		if(map.containsKey(key))
+			map.put(key, value + map.get(key));
+		else
+			map.put(key, value);
+	}
 }
