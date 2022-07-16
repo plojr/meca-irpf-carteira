@@ -25,13 +25,15 @@ td, th {
 					<th>Quantidade</th>
 					<th>Ticker</th>
 					<th>Custo total</th>
+					<th>Preço médio</th>
 				</tr>
 				<c:forEach items="${carteira.itens}" var="item">
 				<c:if test="${item.quantidade ne 0 }">
 					<tr>
 						<td><c:out value="${item.quantidade}"></c:out></td>
-						<td><c:out value="${item.ticker.codigo}"></c:out></td>
+						<td><c:out value="${item.ticker.codigo} (CNPJ: ${item.ticker.cnpj})"></c:out></td>
 						<td><fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="2" value="${item.custoTotal}" /></td>
+						<td><fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="2" value="${item.custoTotal/item.quantidade}" /></td>
 					</tr>
 				</c:if>
 				</c:forEach>
