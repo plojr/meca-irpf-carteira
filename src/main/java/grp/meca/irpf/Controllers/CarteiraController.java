@@ -43,7 +43,7 @@ public class CarteiraController {
 	
 	@PostMapping("carteira")
 	public String carteiraPost() {
-		carteiraRepository.deleteAll();
+		carteiraService.limparCarteira();
 		List<Carteira> carteiras = carteiraService.getCarteiras();
 		for(Carteira carteira: carteiras) {
 			carteira = carteiraRepository.save(carteira);

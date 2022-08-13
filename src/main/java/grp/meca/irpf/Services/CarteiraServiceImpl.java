@@ -15,6 +15,8 @@ import grp.meca.irpf.Models.ItemCarteira;
 import grp.meca.irpf.Models.NotaDeCorretagem;
 import grp.meca.irpf.Models.Ordem;
 import grp.meca.irpf.Models.Ticker;
+import grp.meca.irpf.Repository.CarteiraRepository;
+import grp.meca.irpf.Repository.ItemCarteiraRepository;
 import grp.meca.irpf.Repository.NotaDeCorretagemRepository;
 import grp.meca.irpf.Repository.OrdemRepository;
 import grp.meca.irpf.Repository.TickerRepository;
@@ -33,6 +35,12 @@ public class CarteiraServiceImpl implements CarteiraService {
 	
 	@Autowired
 	private TickerRepository tickerRepository;
+	
+	@Autowired
+	private CarteiraRepository carteiraRepository;
+
+	@Autowired
+	private ItemCarteiraRepository itemCarteiraRepository;
 
 	@Override
 	public List<Carteira> getCarteiras() {
@@ -88,5 +96,15 @@ public class CarteiraServiceImpl implements CarteiraService {
 			}
 		}
 	}
-	
+
+	public void limparCarteira() {
+		List<Carteira> carteiras = carteiraRepository.findAllByOrderByDataAsc();
+		carteiras.forEach(carteira -> {
+			List<ItemCarteira> itens = itemCarteiraRepository.findByCarteira(carteira);
+			itens.forEach(itemCarteira -> {
+				itemCarteiraRepository.delete(itemCarteira);
+			});
+			carteiraRepository.delete(carteira);
+		});
+	}
 }

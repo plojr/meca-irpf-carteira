@@ -1,6 +1,5 @@
 package grp.meca.irpf.Models;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,9 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -42,7 +38,7 @@ public class ItemCarteira {
 	@Column(nullable = false)
 	private int quantidade;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne
 	@JoinColumn(name = "ticker_id", nullable = false)
 	private Ticker ticker;
 	
@@ -51,7 +47,6 @@ public class ItemCarteira {
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "carteira_id", nullable = false)
-	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JsonIgnore
 	private Carteira carteira;
 }
